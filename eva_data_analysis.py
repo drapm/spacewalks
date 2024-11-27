@@ -29,7 +29,7 @@ def write_dataframe_to_csv(df, output_file):
         output_file (str): Path to the csv to be created
     """
     print(f'Saving to CSV file {output_file}')
-    eva_df.to_csv(output_file, index=False)
+    df.to_csv(output_file, index=False)
 
 # https://data.nasa.gov/resource/eva.json (with modifications)
 input_file = open('./eva-data.json', 'r')
