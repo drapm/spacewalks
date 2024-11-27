@@ -22,7 +22,7 @@ eva_df.to_csv(output_file, index=False)
 eva_df['duration_hours'] = eva_df['duration'].str.split(":").apply(lambda x: int(x[0]) + int(x[1]) / 60)
 eva_df['cumulative_time'] = eva_df['duration_hours'].cumsum()
 
-# Create plot of graph
+# Create plot of total duration of spacewalks to date
 plt.plot(eva_df['date'], eva_df['cumulative_time'], 'ko-')
 plt.xlabel('Year')
 plt.ylabel('Total time spent in space to date (hours)')
