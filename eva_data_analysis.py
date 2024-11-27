@@ -10,25 +10,25 @@ graph_file = './cumulative_eva_graph.png'
 
 fieldnames = ("EVA #", "Country", "Crew    ", "Vehicle", "Date", "Duration", "Purpose")
 
-data=[]
+data = []
 
 for i in range(374):
-    line=input_file.readline()
+    line = input_file.readline()
     print(line)
     data.append(json.loads(line[1:-1]))
 #data.pop(0)
 ## Comment out this bit if you don't want the spreadsheet
 
-w=csv.writer(output_file)
+writer = csv.writer(output_file)
 
 time = []
-date =[]
+date = []
 
 j=0
 for i in data:
     print(data[j])
     # and this bit
-    w.writerow(data[j].values())
+    writer.writerow(data[j].values())
     if 'duration' in data[j].keys():
         t_string = data[j]['duration']
         if t_string   == '':
