@@ -20,6 +20,7 @@ def read_json_to_dataframe(input_file):
     eva_df.sort_values('date', inplace=True)
     return eva_df
 
+
 def write_dataframe_to_csv(df, output_file):
     """
     Writes the dataframe to a CSV file for later analysis
@@ -30,6 +31,15 @@ def write_dataframe_to_csv(df, output_file):
     """
     print(f'Saving to CSV file {output_file}')
     df.to_csv(output_file, index=False)
+
+
+def plot_cumulative_time_in_space(df, graph_file):
+    plt.plot(df['date'], df['cumulative_time'], 'ko-')
+    plt.xlabel('Year')
+    plt.ylabel('Total time spent in space to date (hours)')
+    plt.tight_layout()
+    plt.savefig(graph_file)
+    plt.show()
 
 # https://data.nasa.gov/resource/eva.json (with modifications)
 input_file = open('./eva-data.json', 'r')
@@ -47,9 +57,4 @@ eva_df['duration_hours'] = eva_df['duration'].str.split(":").apply(lambda x: int
 eva_df['cumulative_time'] = eva_df['duration_hours'].cumsum()
 
 # Create plot of total duration of spacewalks to date
-plt.plot(eva_df['date'], eva_df['cumulative_time'], 'ko-')
-plt.xlabel('Year')
-plt.ylabel('Total time spent in space to date (hours)')
-plt.tight_layout()
-plt.savefig(graph_file)
-plt.show()
+plot_cumulative_time_in_space(eva_df, graph_file)
