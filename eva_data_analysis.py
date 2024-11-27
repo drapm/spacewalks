@@ -47,7 +47,7 @@ def plot_cumulative_time_in_space(df, graph_file):
         df (pd.DataFrame): The input dataframe.
         graph_file (str): The path to the output graph file.
     """
-    df = add_duration_hours_variable(eva_df)
+    df = add_duration_hours_variable(df)
     df["cumulative_time"] = df["duration_hours"].cumsum()
     plt.plot(df['date'], df['cumulative_time'], 'ko-')
     plt.xlabel('Year')
