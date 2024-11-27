@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import pandas as pd
+import sys
 
 def read_json_to_dataframe(input_file):
     """
@@ -86,16 +87,25 @@ def add_duration_hours_variable(df):
     df_copy["duration_hours"] = df_copy["duration"].apply(text_to_duration)
     return df_copy
 
-# https://data.nasa.gov/resource/eva.json (with modifications)
-input_file = open('./eva-data.json', 'r')
-output_file = open('./eva-data.csv','w')
-graph_file = './cumulative_eva_graph.png'
 
-# Read data from the JSON file
-eva_df = read_json_to_dataframe(input_file)
+if __name__ == "__main__":
 
-# Data saved as csv for later analysis
-write_dataframe_to_csv(eva_df, output_file)
+    if len(sys.argv) < 3:
+        # If less that 3 command line arguments, use default file names
+        # https://data.nasa.gov/resource/eva.json (with modifications)
+        input_file = open('./eva-data.json', 'r')
+        output_file = open('./eva-data.csv','w')
+    else:
+        input_file = sys.argv[1]
+        output_file = sys.argv[2]
 
-# Create plot of total duration of spacewalks to date
-plot_cumulative_time_in_space(eva_df, graph_file)
+    graph_file = './cumulative_eva_graph.png'
+
+    # Read data from the JSON file
+    eva_df = read_json_to_dataframe(input_file)
+
+    # Data saved as csv for later analysis
+    write_dataframe_to_csv(eva_df, output_file)
+
+    # Create plot of total duration of spacewalks to date
+    plot_cumulative_time_in_space(eva_df, graph_file)
