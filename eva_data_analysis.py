@@ -30,14 +30,14 @@ for i in data:
     # and this bit
     w.writerow(data[j].values())
     if 'duration' in data[j].keys():
-        tt=data[j]['duration']
-        if tt == '':
+        t_string = data[j]['duration']
+        if t_string   == '':
             pass
         else:
-            t=dt.datetime.strptime(tt,'%H:%M')
-            ttt = dt.timedelta(hours=t.hour, minutes=t.minute, seconds=t.second).total_seconds()/(60*60)
-            print(t,ttt)
-            time.append(ttt)
+            t = dt.datetime.strptime(t_string , '%H:%M')
+            t_delta = dt.timedelta(hours=t.hour, minutes=t.minute, seconds=t.second).total_seconds()/(60*60)
+            print(t,t_delta)
+            time.append(t_delta)
             if 'date' in data[j].keys():
                 date.append(dt.datetime.strptime(data[j]['date'][0:10], '%Y-%m-%d'))
                 #date.append(data[j]['date'][0:10])
