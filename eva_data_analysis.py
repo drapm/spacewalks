@@ -93,13 +93,13 @@ if __name__ == "__main__":
     if len(sys.argv) < 3:
         # If less that 3 command line arguments, use default file names
         # https://data.nasa.gov/resource/eva.json (with modifications)
-        input_file = open('./eva-data.json', 'r')
-        output_file = open('./eva-data.csv','w')
+        input_file = open('./data/eva-data.json', 'r')
+        output_file = open('./results/eva-data.csv','w')
     else:
         input_file = sys.argv[1]
         output_file = sys.argv[2]
 
-    graph_file = './cumulative_eva_graph.png'
+    graph_file = './results/cumulative_eva_graph.png'
 
     # Read data from the JSON file
     eva_df = read_json_to_dataframe(input_file)
