@@ -25,7 +25,8 @@ def write_dataframe_to_csv(df, output_file):
     Writes the dataframe to a CSV file for later analysis
 
     Args:
-        eva_df (pd.DataFrame): Dataframe to be exported to CSV
+        df (pd.DataFrame): Dataframe to be exported to CSV
+        output_file (str): Path to the csv to be created
     """
     print(f'Saving to CSV file {output_file}')
     eva_df.to_csv(output_file, index=False)
