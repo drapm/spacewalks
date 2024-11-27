@@ -7,8 +7,6 @@ input_file = open('./eva-data.json', 'r')
 output_file = open('./eva-data.csv','w')
 graph_file = './cumulative_eva_graph.png'
 
-fieldnames = ("EVA #", "Country", "Crew    ", "Vehicle", "Date", "Duration", "Purpose")
-
 eva_df = pd.read_json(input_file, convert_dates=['date'])
 # Pandas doesn't import eva column as a float - fix
 eva_df['eva'] = eva_df['eva'].astype(float)
@@ -16,6 +14,7 @@ eva_df['eva'] = eva_df['eva'].astype(float)
 eva_df.dropna(axis=0, inplace=True)
 eva_df.sort_values('date', inplace=True)
 
+# Data saved as csv for later analysis
 eva_df.to_csv(output_file, index=False)
 
 # Calculate duration of each spacewalk, and cumulative total time
