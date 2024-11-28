@@ -1,0 +1,25 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: spacewalks
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Andrew
+    family-names: Matthews
+    email: antt@noc.ac.uk
+    orcid: 'https://orcid.org/0000-0001-5210-2453'
+    affiliation: National Oceanography Centre
+repository-code: 'https://github.com/drapm/spacewalks'
+abstract: >-
+  Spacewalks is a Python analysis tool for researchers to
+  generate visualisations and statistical summaries of
+  NASA's extravehicular activity datasets
+keywords:
+  - nasa
+  - space walks
+  - tutorial
+license: MIT
