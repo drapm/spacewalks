@@ -1,4 +1,4 @@
-from eva_data_analysis import text_to_duration
+from eva_data_analysis import calculate_crew_size, text_to_duration
 import pytest
 
 def test_text_to_duration_float1():
@@ -21,3 +21,15 @@ def test_text_to_duration_float2():
 def test_text_to_duration_integer():
     input_value = "10:00"
     assert text_to_duration(input_value) == 10
+
+def test_calculate_crew_size_single():
+    input_value = "Valentina Kerman;"
+    actual_result = calculate_crew_size(input_value)
+    expected_result = 1
+    assert actual_result == expected_result
+
+def test_calculate_crew_size_multiple():
+    input_value = "Klaes Ashford;Carmina Drummer;Naomi Nagata;"
+    actual_result = calculate_crew_size(input_value)
+    expected_result = 3
+    assert actual_result == expected_result
