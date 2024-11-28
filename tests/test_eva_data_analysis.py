@@ -22,14 +22,14 @@ def test_text_to_duration_integer():
     input_value = "10:00"
     assert text_to_duration(input_value) == 10
 
-def test_calculate_crew_size_single():
-    input_value = "Valentina Kerman;"
+@pytest.mark.parametrize("input_value, expected_result", [
+    ("Valentina Kerman;", 1),
+    ("Klaes Ashford;Carmina Drummer;Naomi Nagata;", 3),
+    ("", None)
+])
+def test_calculate_crew_size(input_value, expected_result):
+    """
+    Test that validates calculate_crew_size counts crew members correctly
+    """    
     actual_result = calculate_crew_size(input_value)
-    expected_result = 1
-    assert actual_result == expected_result
-
-def test_calculate_crew_size_multiple():
-    input_value = "Klaes Ashford;Carmina Drummer;Naomi Nagata;"
-    actual_result = calculate_crew_size(input_value)
-    expected_result = 3
     assert actual_result == expected_result
