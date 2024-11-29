@@ -31,5 +31,5 @@ def test_calculate_crew_size(input_value, expected_result):
     """
     Test that validates calculate_crew_size counts crew members correctly
     """    
-    actual_result = calculate_crew_size(input_value)
+    actual_result = calculate_crew_size(input_value))
     assert actual_result == expected_result
