@@ -23,3 +23,7 @@ keywords:
   - space walks
   - tutorial
 license: MIT
+identifiers:
+  - type: doi
+    value: 10.5072/zenodo.137893
+date-released: 2024-11-29
